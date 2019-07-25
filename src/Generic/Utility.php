@@ -17,7 +17,7 @@ class Utility
         return $url;
     }
 
-    public static function getPathUrl($path, $homePath = null, $count = self::DIRNAME_COUNT)
+    public static function getAssetUrl($path, $homePath = null, $count = self::DIRNAME_COUNT)
     {
         $url = self::getStaticUri();
         if ($url) {
