@@ -14,9 +14,6 @@
     "psr-4": {
       "Generic\\": "src/Generic"
     },
-    "files": [
-      "field-type.php"
-    ]
   },
   "require": {
     "php": ">=7.2",
