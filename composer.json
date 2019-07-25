@@ -1,0 +1,25 @@
+{
+  "name": "narmafzam/generic",
+  "license": "proprietary",
+  "type": "project",
+  "keywords": ["wordpress", "plugin", "fields", "cmb2"],
+  "authors": [
+    {
+      "name": "Farshad Asgharzade",
+      "email": "farshadasgharzade@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Generic\\": "src/Generic"
+    },
+    "files": [
+      "field-type.php"
+    ]
+  },
+  "require": {
+    "php": ">=7.2"
+  },
+  "minimum-stability": "dev"
+}
