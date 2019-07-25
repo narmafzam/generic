@@ -30,7 +30,7 @@ class Utility
 
     public static function getHomeDirectoryName($path = null, $count = self::DIRNAME_COUNT)
     {
-        return strchr(self::getHomeDirectory($path, $count), '/');
+        return strrchr(self::getHomeDirectory($path, $count), '/');
     }
 
     public static function getHomeDirectory($path = null, $count = self::DIRNAME_COUNT)
