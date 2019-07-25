@@ -25,4 +25,18 @@ class Utility
         }
         return null;
     }
+
+    public static function getHomeDirectory()
+    {
+        $home = false;
+        if (defined('ABSPATH')) {
+            $home = ABSPATH;
+        } elseif (isset($_SERVER['DOCUMENT_ROOT']) && !empty($_SERVER['DOCUMENT_ROOT'])) {
+            $home = str_replace(' ', '', $_SERVER['DOCUMENT_ROOT']);
+            $home = rtrim($home, '/') . '/';
+        } else {
+            //TODO ... I don't know how get home path.
+        }
+        return $home;
+    }
 }
