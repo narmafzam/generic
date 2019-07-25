@@ -2,7 +2,7 @@
 
 namespace Generic;
 
-use mysql_xdevapi\Exception;
+use \Exception;
 use Symfony\Component\Asset\UrlPackage;
 use Symfony\Component\Asset\VersionStrategy\JsonManifestVersionStrategy;
 

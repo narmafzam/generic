@@ -4,6 +4,8 @@ namespace Generic;
 
 class Utility
 {
+    const DIRNAME_COUNT = 2;
+
     public static function getStaticUri()
     {
         $url = false;
@@ -15,21 +17,31 @@ class Utility
         return $url;
     }
 
-    public static function getPathUrl($path)
+    public static function getPathUrl($path, $homePath = null, $count = self::DIRNAME_COUNT)
     {
         $url = self::getStaticUri();
         if ($url) {
-            $home = strrchr(dirname(dirname(__DIR__)), '/');
+            $home = self::getHomeDirectoryName($homePath, $count);
             $url = rtrim(rtrim($url, '/') . '/vendor' . $home, '/') . $path;
             return $url;
         }
         return null;
     }
 
-    public static function getHomeDirectory()
+    public static function getHomeDirectoryName($path = null, $count = self::DIRNAME_COUNT)
+    {
+        return strchr(self::getHomeDirectory($path, $count), '/');
+    }
+
+    public static function getHomeDirectory($path = null, $count = self::DIRNAME_COUNT)
     {
         $home = false;
-        if (defined('ABSPATH')) {
+        if ($path) {
+            for ($i = 0; $i < $count; $i++) {
+                $path = dirname($path);
+            }
+            return $path;
+        } elseif (defined('ABSPATH')) {
             $home = ABSPATH;
         } elseif (isset($_SERVER['DOCUMENT_ROOT']) && !empty($_SERVER['DOCUMENT_ROOT'])) {
             $home = str_replace(' ', '', $_SERVER['DOCUMENT_ROOT']);
